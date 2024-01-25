@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td{
+            padding: 5px;
+        }
+        .searchInput{
+            margin: 10px 0;
+        }
+        .searchInput input{
+            padding: 5px 10px;
+            border-radius: 4px;
+            border: none;
+            outline: #00abf0 1px solid;
+        }
+    </style>
+</head>
+<body dir="rtl" style="display: flex;align-items: center;justify-content: center;flex-direction: column;background-color: rgba(0, 255, 255, 0.296);">
+    <h1>Search the Price</h1>
+    <div class="searchInput">
+        <input type="text" id="search" placeholder="بحث..." onkeyup="searchData(this.value)">
+    </div>
+    <table border="2">
+        <thead>
+            <th>موقع الوصول</th>
+            <th>التكلفة</th>
+        </thead>
+        <tbody id="contain">
+            
+        </tbody>
+    </table>
+    <script src="./script.js"></script>
+</body>
+</html>
