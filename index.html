@@ -17,12 +17,35 @@
             border: none;
             outline: #00abf0 1px solid;
         }
+        .containTravel{
+            margin: 10px 0;
+            text-align: center;
+        }
+        .containTravel{
+            font-weight: bold;
+            font-size: 20px;
+        }
+        #travel{
+            padding: 5px 20px;
+            border: none;
+            outline: 1px solid #00abf0;
+            background: #1919ffb5;
+            color: #fff;
+        }
     </style>
 </head>
 <body dir="rtl" style="display: flex;align-items: center;justify-content: center;flex-direction: column;background-color: rgba(0, 255, 255, 0.296);">
     <h1>Search the Price</h1>
-    <div class="searchInput">
-        <input type="text" id="search" placeholder="بحث..." onkeyup="searchData(this.value)">
+    <div>
+        <div class="searchInput">
+            <input type="text" id="search" placeholder="بحث..." onkeyup="searchData(this.value)">
+        </div>
+        <div class="containTravel">
+            <label for="">موقع التحرك: </label>
+            <select name="travel" id="travel">
+                <option value="الكينج">الكينج</option>
+            </select>
+        </div>
     </div>
     <table border="2">
         <thead>
