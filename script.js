@@ -37,36 +37,81 @@ const obj = [
     ["مطار برج العرب للكينج والعكس H1"],
     ["مطار برج العرب للكينج والعكس ذهاب وعوده H1"]
 ]
+const AlexTravelling = [
+    ["ابو يوسف","الهانوفيل"],
+    ["المكس -الدخيلة","البيطاش"],
+    ["ابو تلات حتى كارفور"],
+    ["كفر الدوار ذهاب وعوده"],
+    ["من ش 45 للمنتزه"],
+    ["قرية امون","مطار برج العرب حتى ميامي"],
+    ["مطار برج العرب من شارع 45 للمنتزة"],
+    ["مطار برج العرب من المعمورة"],
+    ["مطار برج العرب من طوسون وابوقير"],
+    ["مطار برج العرب VIP ( كورلا - سيراتو - النترا )"],
+    ["مطار برج العرب جلوري"],
+    ["مطار برج العرب حتى ميامي ذهاب و عودة"],
+    ["مطار برج العرب من شارع 45 للمنتزة ذهاب و عوده","مطار برج العرب من المعمورة ذهاب و عوده"],
+    ["مطار برج العرب من طوسون وابوقير ذهاب و عوده","مطار برج العرب ذهاب وعوده جلوري"," مطار برج العرب  ( كورلا - سيراتو - النترا ) Vip ذهاب و عوده"],
+    ["مطار برج العرب  الاسكندريةوالعكس H1"],
+    ["مطار برج العرب  الاسكندريةوالعكس ذهاب و عودهH1"]
+]
 const price = [80,100,120,130,140,150,160,180,200,220,240,250,260,300,320,350,400,500,700,850,1000]
-let travel = document.getElementById('travel').value
-console.log(travel);
+const AlexTravellingPrice = [160,170,230,250,310,350,375,400,425,500,550,600,650,700,850,1000]
+let Travelcontainer = document.getElementById("travel")
 let tbody = document.getElementById('contain');
-for(let i = 0;i<obj.length;i++){
-    for(let j = 0;j<obj[i].length;j++){
-        tbody.innerHTML += `
-        <tr>
-            <td>${obj[i][j]}</td>
-            <td>${price[i]}</td>
-        </tr>
-       
-        `
-    }
-}
-function searchData(value){
-let table = '';
-for (let i = 0; i < obj.length; i++) {
-    for(let j = 0;j < obj[i].length;j++){
-        if (obj[i][j].includes(value.toLowerCase())) {
-            table += `
+let travel = "الكينج"
+function changeTravel(){
+    if(travel == "الكينج"){
+        table = ''
+        for(let i = 0;i<obj.length;i++){
+            for(let j = 0;j<obj[i].length;j++){
+                table += `
                 <tr>
                     <td>${obj[i][j]}</td>
                     <td>${price[i]}</td>
                 </tr>
-            `;
+               
+                `
+            }
         }
+        tbody.innerHTML = table
+    }else if(travel == "الاسكندرية"){
+            table = ''
+            for(let i = 0;i<AlexTravelling.length;i++){
+                for(let j = 0;j<AlexTravelling[i].length;j++){
+                    table += `
+                    <tr>
+                        <td>${AlexTravelling[i][j]}</td>
+                        <td>${AlexTravellingPrice[i]}</td>
+                    </tr>
+                   
+                    `
+                }
+            }
+            tbody.innerHTML = table
     }
-
-
 }
-    tbody.innerHTML = table
+changeTravel()
+Travelcontainer.onchange = () => {
+    travel = document.getElementById('travel').value
+    console.log(travel);
+    changeTravel()
 }
+function searchData(value){
+    let table = '';
+    for (let i = 0; i < obj.length; i++) {
+        for(let j = 0;j < obj[i].length;j++){
+            if (obj[i][j].includes(value.toLowerCase())) {
+                table += `
+                    <tr>
+                        <td>${obj[i][j]}</td>
+                        <td>${price[i]}</td>
+                    </tr>
+                `;
+            }
+        }
+    
+    
+    }
+        tbody.innerHTML = table
+    }
